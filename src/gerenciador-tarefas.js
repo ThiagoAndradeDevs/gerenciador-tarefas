@@ -1,11 +1,19 @@
+/* eslint-disable no-undef */
+/* eslint-disable react/jsx-no-undef */
+/* eslint-disable no-unused-vars */
 import React from 'react'
 import './gerenciador-tarefas.css';
+import { useRoutes } from 'hookrouter';
+
+const routes = {
+  '/': () => <ListarTarefas />,
+  '/cadastrar': () => <CadastrarTarefa />,
+  ' /atualizar/id:': ({ id })
+};
 
 
 function GerenciadoTarefas() {
-  return (
-    <h1>Gerenciador de Tarefas</h1>
-  );
+  return useRoutes(routes);
 }
 
 export default GerenciadoTarefas;
