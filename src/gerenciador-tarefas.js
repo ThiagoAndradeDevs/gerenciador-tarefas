@@ -5,6 +5,9 @@ import React from 'react'
 import './gerenciador-tarefas.css';
 import { useRoutes } from 'hookrouter';
 import AtualizarTarefa from './atualizar/atualizar-tarefas';
+import CadastrarTarefa from './cadastrar/cadastrar-tarefa';
+import ListarTarefas from './listar/listar-tarefas';
+
 
 const routes = {
   '/': () => <ListarTarefas />,
