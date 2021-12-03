@@ -4,11 +4,12 @@
 import React from 'react'
 import './gerenciador-tarefas.css';
 import { useRoutes } from 'hookrouter';
+import AtualizarTarefa from './atualizar/atualizar-tarefas';
 
 const routes = {
   '/': () => <ListarTarefas />,
   '/cadastrar': () => <CadastrarTarefa />,
-  ' /atualizar/id:': ({ id })
+  ' /atualizar/id:': ({ id }) => <AtualizarTarefa id={id} />
 };
 
 
