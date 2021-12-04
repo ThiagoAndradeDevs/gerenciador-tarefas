@@ -1,8 +1,12 @@
-import { render, screen } from '@testing-library/react';
-import GerenciadoTarefas from './gerenciador-tarefas';
+/* eslint-disable no-undef */
+import React from 'react';
+import ReactDOM from 'react-dom';
+import GerenciadorTarefas from './gerenciador-tarefas';
 
-test('deve reinderizar projeto sem erros', () => {
-  render(<GerenciadoTarefas />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+
+it('Deve reinderizar o projeto sem  erros', () => {
+  const div = document.createElement('div');
+  ReactDOM.render(<GerenciadorTarefas />, div);
+  ReactDOM.unmountComponentAtNode(div);
+})
+

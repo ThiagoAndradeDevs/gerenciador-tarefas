@@ -1,3 +1,4 @@
+/* eslint-disable no-unreachable */
 /* eslint-disable no-undef */
 /* eslint-disable react/jsx-no-undef */
 /* eslint-disable no-unused-vars */
@@ -12,12 +13,13 @@ import ListarTarefas from './listar/listar-tarefas';
 const routes = {
   '/': () => <ListarTarefas />,
   '/cadastrar': () => <CadastrarTarefa />,
-  ' /atualizar/id:': ({ id }) => <AtualizarTarefa id={id} />
+  ' /atualizar/:id': ({ id }) => <AtualizarTarefa id={id} />
 };
 
 
-function GerenciadoTarefas() {
+function GerenciadorTarefas() {
   return useRoutes(routes);
+  <h1>Gerenciador de tarefas</h1>
 }
 
-export default GerenciadoTarefas;
+export default GerenciadorTarefas;
