@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CadastrarTarefa from '../../atualizar/cadastrar/cadastrar-tarefa';
+import CadastrarTarefa from './cadastrar-tarefa';
 
 
 describe('Teste do componente de cadastro de tarefas', () => {
