@@ -1,6 +1,8 @@
 import React from 'react';
 
 function CadastrarTarefa() {
-  return <h1>Cadastrar Tarefa</h1>
+  return (
+    <div>Cadastrar Tarefa!!</div>
+  )
 }
 export default CadastrarTarefa;
