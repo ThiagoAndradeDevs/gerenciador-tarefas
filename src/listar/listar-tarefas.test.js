@@ -7,6 +7,6 @@ describe('Teste do componente de listagem de tarefas', () => {
   it('Deve reinderizar o componente sem eroos', () => {
     const div = document.createElement('div');
     ReactDOM.render(<ListarTarefas />, div);
-    React.unmountComponentAtNode(div);
+    ReactDOM.unmountComponentAtNode(div);
   });
 });
