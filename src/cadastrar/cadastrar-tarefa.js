@@ -8,7 +8,7 @@ function CadastrarTarefa() {
   return (
     <div>
       <h3 className='text-center'>Cadastar</h3>
-      <div className='Jumbo'>
+      <div className='jumbotron jumbotron-fluid'>
         <Form>
           <Form.Group>
             <Form.Label>Tarefa</Form.Label>
