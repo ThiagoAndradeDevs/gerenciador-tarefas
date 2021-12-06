@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Button, Form, Modal } from 'react-bootstrap'
 
 
+
 function CadastrarTarefa() {
   return (
     <div>
@@ -22,7 +23,7 @@ function CadastrarTarefa() {
               A tarefa deve conter ao menos 5 caracteres.
             </Form.Control.Feedback>
           </Form.Group>
-          <Form.Group>
+          <Form.Group className="text-center">
             <Button
               variant="success"
               type="submit">
