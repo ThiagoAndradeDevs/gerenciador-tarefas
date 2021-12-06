@@ -1,9 +1,0 @@
-body {
-  display: flex;
-  height: 100vh;
-  justify-content:baseline;
-  align-items:flex-start;
-  text-align: center;
-  color: #fff;
-  background: linear-gradient(to right, rgb(154, 155, 170), rgb(51, 57, 112));
-}
