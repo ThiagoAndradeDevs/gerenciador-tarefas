@@ -9,11 +9,20 @@ function CadastrarTarefa() {
   const [tarefa, setTarefa] = useState(' ')
   const [formValidado, setFormValidado] = useState(false)
   const [exibirModal, setExibirModal] = useState(false)
+  function cadastrar(evevnt) {
+
+  }
+  function handleTxtTarefa(event) {
+    setTarefa(event.target.value)
+  }
   return (
     <div>
       <h3 className='text-center'>Cadastar</h3>
       <ToggleButtonGroup>
-        <Form>
+        <Form
+          validated={formValidado}
+          noValidate
+          onSubmit={cadastrar}>
           <Form.Group>
             <Form.Label>Tarefa</Form.Label>
             <Form.Control
@@ -21,7 +30,9 @@ function CadastrarTarefa() {
               placeholder="Digitar a tarefa"
               minLength="5"
               maxLength="100"
-              required></Form.Control>
+              required
+              value={tarefa}
+              onChange={handleTxtTarefa}></Form.Control>
             <Form.Control.Feedback type="invalid">
               A tarefa deve conter ao menos 5 caracteres.
             </Form.Control.Feedback>
