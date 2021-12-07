@@ -18,5 +18,6 @@ describe('Teste do componente de cadastro de tarefas', () => {
     fireEvent.change(getByTestId('txt-tarefa'), { target: { value: 'Testar componente' } });
     fireEvent.click(getByTestId('btn-cadastar'));
     expect(getByTestId('modal')).toHaveTextContent('Sucesso')
+    expect(getByTestId('modal')).toHaveTextContent(' Tarefa adicionada com sucesso')
   })
 })
