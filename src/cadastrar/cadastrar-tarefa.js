@@ -66,7 +66,7 @@ function CadastrarTarefa() {
             <A href="/" className="btn btn-light">Voltar</A>
           </Form.Group>
         </Form>
-        <Modal show={exibirModal} onHide={handleFecharModal}>
+        <Modal show={exibirModal} onHide={handleFecharModal} data-testid="modal">
           <Modal.Header closeButton>
             <Modal.Title>sucesso</Modal.Title>
           </Modal.Header>

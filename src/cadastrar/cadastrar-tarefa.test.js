@@ -1,3 +1,4 @@
+/* eslint-disable jest/valid-expect */
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -15,6 +16,7 @@ describe('Teste do componente de cadastro de tarefas', () => {
   it('Deve cadastrar uma nova tarefa', () => {
     const { getByTestId } = render(<CadastrarTarefa />);
     fireEvent.change(getByTestId('txt-tarefa'), { target: { value: 'Testar componente' } });
-    fireEvent.click(getByTestId('btn-cadastar'))
+    fireEvent.click(getByTestId('btn-cadastar'));
+    expect(getByTestId('modal'))
   })
 })
