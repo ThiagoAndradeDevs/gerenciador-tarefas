@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { A } from 'hookrouter';
 import React, { useState } from 'react';
-import { Button, Form, Modal } from 'react-bootstrap'
+import { Button, Form, Modal, ToggleButtonGroup } from 'react-bootstrap'
 
 
 
@@ -9,7 +9,7 @@ function CadastrarTarefa() {
   return (
     <div>
       <h3 className='text-center'>Cadastar</h3>
-      <div class='container bg-primary text-white'>
+      <ToggleButtonGroup>
         <Form>
           <Form.Group>
             <Form.Label>Tarefa</Form.Label>
@@ -44,7 +44,7 @@ function CadastrarTarefa() {
             <Button variant="success">Continuar</Button>
           </Modal.Footer>
         </Modal>
-      </div>
+      </ToggleButtonGroup>
 
     </div>
   )
