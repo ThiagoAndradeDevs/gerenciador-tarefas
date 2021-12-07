@@ -17,7 +17,7 @@ function CadastrarTarefa() {
     setTarefa(event.target.value)
   }
   function handleFecharModal() {
-
+    navigate('/');
   }
   return (
     <div>
