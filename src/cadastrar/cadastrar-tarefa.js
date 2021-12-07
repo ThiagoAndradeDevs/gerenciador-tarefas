@@ -6,6 +6,9 @@ import { Button, Form, Modal, ToggleButtonGroup } from 'react-bootstrap'
 
 
 function CadastrarTarefa() {
+  const [tarefa, setTarefa] = useState(' ')
+  const [formValidado, setFormValidado] = useState(false)
+  const [exibirModal, setExibirModal] = useState(false)
   return (
     <div>
       <h3 className='text-center'>Cadastar</h3>
