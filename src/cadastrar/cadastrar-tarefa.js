@@ -1,8 +1,10 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import { A } from 'hookrouter';
 import React, { useState } from 'react';
 import { Button, Form, Modal, ToggleButtonGroup } from 'react-bootstrap'
 import { navigate } from 'hookrouter';
+import Tarefa from '../models/tarefa.model';
 
 
 
@@ -10,7 +12,18 @@ function CadastrarTarefa() {
   const [tarefa, setTarefa] = useState(' ')
   const [formValidado, setFormValidado] = useState(false)
   const [exibirModal, setExibirModal] = useState(false)
-  function cadastrar(evevnt) {
+  function cadastrar(event) {
+    event.preventDefault();
+    setFormValidado(true);
+    if (event.currentTarget.checkValidity() === true) {
+      //obtem tarefa 
+      const tarefaDb = localStorage['tarefas'];
+      const tarefas = tarefasDb ? JSON.parse(tarefaDb) : [];
+      //persiste tarefa
+      tarefas.push(new tarefa(new Date().getTime(), tarefa, false));
+      localStorage['tarefas'] = JSON.stringify(tarefas);
+      setExibirModal(true);
+    }
 
   }
   function handleTxtTarefa(event) {
