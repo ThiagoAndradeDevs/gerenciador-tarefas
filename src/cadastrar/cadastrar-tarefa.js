@@ -2,6 +2,7 @@
 import { A } from 'hookrouter';
 import React, { useState } from 'react';
 import { Button, Form, Modal, ToggleButtonGroup } from 'react-bootstrap'
+import { navigate } from 'hookrouter';
 
 
 
@@ -14,6 +15,9 @@ function CadastrarTarefa() {
   }
   function handleTxtTarefa(event) {
     setTarefa(event.target.value)
+  }
+  function handleFecharModal() {
+
   }
   return (
     <div>
@@ -47,7 +51,7 @@ function CadastrarTarefa() {
             <A href="/" className="btn btn-light">Voltar</A>
           </Form.Group>
         </Form>
-        <Modal show={false}>
+        <Modal show={exibirModal} onHide={handleFecharModal}>
           <Modal.Header closeButton>
             <Modal.Title>sucesso</Modal.Title>
           </Modal.Header>
@@ -55,7 +59,8 @@ function CadastrarTarefa() {
             Tarefa adicionada com sucesso
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="success">Continuar</Button>
+            <Button variant="success"
+              onClick={handleFecharModal}>Continuar</Button>
           </Modal.Footer>
         </Modal>
       </ToggleButtonGroup>
