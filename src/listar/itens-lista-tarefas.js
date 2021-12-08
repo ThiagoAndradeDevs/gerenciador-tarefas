@@ -14,7 +14,7 @@ function ItensListaTarefas(props) {
       <tr key={tarefa.id} data-testid="tarefa">
         <td width="75%"
           data-testid="nome-tarefa"
-          style={{ extDecoration: marcarConcluida(tarefa) }}>
+          style={{ textDecoration: marcarConcluida(tarefa) }}>
           {tarefa.nome}
         </td>
         <td className="text-right">
