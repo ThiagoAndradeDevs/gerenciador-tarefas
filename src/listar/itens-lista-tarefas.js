@@ -5,12 +5,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { A } from 'hookrouter';
 function ItensListaTarefas(props) {
+  function marcarConcluida(tarefa) {
+    return tarefa.concluida ? 'line-through' : 'none';
+  }
 
   return (
     props.tarefas.map(tarefa =>
       <tr key={tarefa.id} data-testid="tarefa">
         <td width="75%"
-          data-testid="nome-tarefa">
+          data-testid="nome-tarefa"
+          style={{ extDecoration: marcarConcluida(tarefa) }}>
           {tarefa.nome}
         </td>
         <td className="text-right">
