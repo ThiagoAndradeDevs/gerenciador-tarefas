@@ -1,11 +1,21 @@
 /* eslint-disable no-unused-vars */
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { A } from 'hookrouter';
 import { Table } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 function ListarTarefas() {
+  const [tarefas, setTarefas] = useState([]);
+  useEffect(() => {
+    function obterTarefas() {
+      const tarefasDb = localStorage['tarefas'];
+      let ListarTarefas = tarefasDb ? JSON.parse(tarefasDb) : [];
+      setTarefas(ListarTarefas);
+    }
+    obterTarefas();
+  });
+
   return (
     <div className="text-center">
       <h3>Tarefas a fazer</h3>
