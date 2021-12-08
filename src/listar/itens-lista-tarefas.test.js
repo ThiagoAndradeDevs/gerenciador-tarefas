@@ -8,6 +8,9 @@ import '@testing-library/jest-dom/extend-expect'
 
 describe('Teste do componente que exibe item da listagem de tarefas', () => {
 
+  const nomeTarefa = 'Tarefa';
+  const tarefa = new Tarefa(1, nomeTarefa, false)
+
   it('Deve reinderizar o componente sem eroos', () => {
     const div = document.createElement('div');
     ReactDOM.render(
@@ -15,6 +18,16 @@ describe('Teste do componente que exibe item da listagem de tarefas', () => {
         recarregarTarefas={() => false} />, div);
     ReactDOM.unmountComponentAtNode(div);
   })
-
+  it('Deve exibir a tarefa', () => {
+    const { getByTestId } = render(
+      <table>
+        <tbody>
+          <ItensListaTarefas tarefas={[tarefa]}
+            recarregarTarefas={() => false} />
+        </tbody>
+      </table>
+    )
+    expect(getByTestId('Tarefa')).toHaveTextContent(nomeTarefa);
+  })
 
 })
