@@ -7,14 +7,19 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 function ListarTarefas() {
   const [tarefas, setTarefas] = useState([]);
+  const [carregarTarefas, setCarregarTarefas] = useState(true);
   useEffect(() => {
     function obterTarefas() {
       const tarefasDb = localStorage['tarefas'];
       let ListarTarefas = tarefasDb ? JSON.parse(tarefasDb) : [];
       setTarefas(ListarTarefas);
     }
-    obterTarefas();
-  });
+    if (carregarTarefas) {
+      obterTarefas();
+      setCarregarTarefas(false);
+    }
+
+  }, [carregarTarefas]);
 
   return (
     <div className="text-center">
