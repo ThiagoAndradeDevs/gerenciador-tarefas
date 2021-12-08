@@ -14,17 +14,18 @@ function ListarTarefas() {
         <tr>
           <th>Tarefa</th>
           <th>
-            <A href="cadastrar"
+            <A href="/cadastrar"
               className="btn btn-success btn-sm"
               data-testid="btn-nova-tarefa">
               <FontAwesomeIcon icon={faPlus} />
               &nbsp;
             </A>
-
-
           </th>
         </tr>
       </thead>
+      <tbody>
+
+      </tbody>
     </div>
   )
 }
