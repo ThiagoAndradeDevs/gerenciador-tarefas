@@ -1,0 +1,20 @@
+/* eslint-disable no-unused-vars */
+import React from 'react';
+import ReactDOM from 'react-dom';
+import RemoverTarefa from './remover-tarefa';
+import Tarefa from '../models/tarefa.model';
+import { render, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
+
+describe('Teste do componente de remoção de tarefas', () => {
+  const nomeTarefa = 'Tarefa de teste'
+  const tarefa = new Tarefa(1, nomeTarefa, false);
+  it('deve reinderizar o componente sem erros', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(
+      <RemoverTarefa
+        tarefa={tarefa}
+        recarregarTarefas={() => false} />, div);
+    ReactDOM.unmountComponentAtNode(div);
+  })
+})
