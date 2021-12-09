@@ -26,4 +26,16 @@ describe('Teste do componente de remoção de tarefas', () => {
     fireEvent.click(getByTestId('btn-abrir-modal'));
     expect(getByTestId('modal')).toHaveTextContent(nomeTarefa);
   })
+  it('deve remover uma tarefa', () => {
+    localStorage['tarefas'] = JSON.stringify([tarefa]);
+    const { getByTestId } = render(
+      <RemoverTarefa
+        tarefa={tarefa}
+        recarregarTarefas={() => false} />
+    )
+    fireEvent.click(getByTestId('btn-abrir-modal'));
+    fireEvent.click(getByTestId('btn-remover'));
+    const tarefasDb = JSON.parse(localStorage['tarefas']);
+    expect(tarefasDb.length).toBe(0);
+  })
 })
