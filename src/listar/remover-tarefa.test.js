@@ -17,4 +17,13 @@ describe('Teste do componente de remoção de tarefas', () => {
         recarregarTarefas={() => false} />, div);
     ReactDOM.unmountComponentAtNode(div);
   })
+  it('deve exibir a modal', () => {
+    const { getByTestId } = render(
+      <RemoverTarefa
+        tarefa={tarefa}
+        recarregarTarefas={() => false} />
+    )
+    fireEvent.click(getByTestId('btn-abrir-modal'));
+    expect(getByTestId('modal')).toHaveTextContent(nomeTarefa);
+  })
 })
