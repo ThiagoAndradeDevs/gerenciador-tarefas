@@ -36,7 +36,7 @@ function CadastrarTarefa() {
     <div>
 
       <h3 className='text-center'>Cadastar</h3>
-      <ToggleButtonGroup>
+      <span>
         <Form
           validated={formValidado}
           noValidate
@@ -79,7 +79,7 @@ function CadastrarTarefa() {
               onClick={handleFecharModal}>Continuar</Button>
           </Modal.Footer>
         </Modal>
-      </ToggleButtonGroup>
+      </span>
 
     </div>
   )
