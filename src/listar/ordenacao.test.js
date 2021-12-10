@@ -31,4 +31,12 @@ describe('Teste do componente de ordenaçao', () => {
     expect(getByTestId('faSortUp')).not.toHaveClass('hidden');
     expect(getByTestId('faSortDown')).toHaveClass('hidden');
   })
+  it('deve exibir a ordenaçao descendente', () => {
+    const { getByTestId } = render(
+      <Ordenacao ordenarAsc={false} ordenarDesc={true} />
+    )
+    expect(getByTestId('faSort')).toHaveClass('hidden');
+    expect(getByTestId('faSortUp')).toHaveClass('hidden');
+    expect(getByTestId('faSortDown')).not.toHaveClass('hidden');
+  })
 })
