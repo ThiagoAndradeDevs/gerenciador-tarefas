@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react'
 import { A } from 'hookrouter';
-import { Table } from 'react-bootstrap';
+import { Table, Form } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import ItensListaTarefas from './itens-lista-tarefas';
@@ -18,6 +18,7 @@ function ListarTarefas() {
   const [paginaAtual, setPaginaAtual] = useState(1);
   const [ordenarAsc, setOrdenarAsc] = useState(false);
   const [ordenarDesc, setOrdenarDesc] = useState(false);
+  const [filtroTarefa, setFiltroTarefa] = useState(' ');
   useEffect(() => {
     function obterTarefas() {
       const tarefasDb = localStorage['tarefas'];
@@ -63,6 +64,10 @@ function ListarTarefas() {
     }
     setCarregarTarefas(true);
   }
+  function handleFiltrar(evevnt) {
+    setFiltroTarefa(evevnt.target.value);
+    setCarregarTarefas(true);
+  }
 
   return (
     <div className="text-center">
@@ -88,6 +93,17 @@ function ListarTarefas() {
                 &nbsp;
               </A>
             </th>
+          </tr>
+          <tr>
+            <th>
+              <Form.Control
+                type="text"
+                value={filtroTarefa}
+                onChange={handleFiltrar}
+                data-testid="txt-tarefa"
+                className="filtro-tarefa" />
+            </th>
+            <th>&nbsp;</th>
           </tr>
         </thead>
         <tbody>
