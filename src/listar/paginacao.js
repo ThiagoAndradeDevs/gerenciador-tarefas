@@ -26,7 +26,8 @@ function Paginacao(props) {
       </Pagination.Item>
     )
   }
-  function gerarProximoIten() {
+
+  function gerarProximoItem() {
     return (
       <Pagination.Next key="paagNext" onClick={() => props.mudarPagina(props.paginaAtual + 1)}
         disabled={props.paginaAtual === numPaginas}>
@@ -34,16 +35,25 @@ function Paginacao(props) {
       </Pagination.Next>
     )
   }
+  function gerarUltimoItem(numeroPaginas) {
+    return (
+      <Pagination.Last
+        key="pagLast"
+        onClick={() => props.mudarPagina(numeroPaginas)}
+        disabled={props.paginaAtual === numeroPaginas} />
+    )
+  }
   function obterPaginacao() {
     const numPaginas = Math.ceil(props.totalItens / props.itensPorPagina);
     let itens = [];
-    itens.push(gerarPrimeiroIten());
+    itens.push(gerarPrimeiroItem());
     itens.push(gerarItemAnterior());
 
     for (let pagina = 1; pagina <= numPaginas; pagina++) {
       itens.push(gerarItemNumerico(pagina))
     }
-    itens.push(gerarProximoIten(numPaginas))
+    itens.push(gerarProximoItem(numPaginas));
+    itens.push(gerarUltimoItem(numPaginas));
 
     return itens;
   }
