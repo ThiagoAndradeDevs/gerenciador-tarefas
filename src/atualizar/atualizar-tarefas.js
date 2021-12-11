@@ -1,11 +1,13 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Form, Modal, Jumbotron } from 'react-bootstrap';
 import { navigate, A } from 'hookrouter';
 
 function AtualizarTarefa(props) {
+  const [tarefa, setTarefa] = useState(' ')
   const [exibirModal, setExibirModal] = useState(false);
+  const [formValidado, setFormValidado] = useState(false)
   function voltar(event) {
     event.preventDefault();
     navigate('/');
@@ -14,11 +16,24 @@ function AtualizarTarefa(props) {
 
     navigate('/');
   }
+  function atualizar(event) {
+    event.preventDefault();
+    setFormValidado(true);
+    if (event.currentTarget.checkValidity() === true) {
+      //obter as tarefa
+
+      // persistir a tarefa atualizada
+      setExibirModal(true)
+    }
+  }
+  function handleTxtTarefa(event) {
+    setTarefa(event.target.value);
+  }
   return (
     <div>
       <h3 className="text-center">Atualizar</h3>
       <Jumbotron>
-        <Form noValidate>
+        <Form onSubmit={atualizar} noValidate validated={formValidado}>
           <Form.Group>
             <Form.Label>Tarefa</Form.Label>
             <Form.Control
@@ -27,7 +42,8 @@ function AtualizarTarefa(props) {
               minLength='5'
               maxLength='100'
               required
-              data-testid='txt-tarefa' />
+              data-testid='txt-tarefa'
+              value={tarefa} onChange={handleTxtTarefa} />
             <Form.Control.Feedback type='invalid'>
               A tarefa deve conter ao menos 5 caracteres.
             </Form.Control.Feedback>
