@@ -48,7 +48,7 @@ function ListarTarefas() {
       setCarregarTarefas(false);
     }
 
-  }, [carregarTarefas, paginaAtual, ordenarAsc, ordenarDesc]);
+  }, [carregarTarefas, paginaAtual, ordenarAsc, ordenarDesc, filtroTarefa]);
   function handkeMudarPagina(pagina) {
     setPaginaAtual(pagina);
     setCarregarTarefas(true);
