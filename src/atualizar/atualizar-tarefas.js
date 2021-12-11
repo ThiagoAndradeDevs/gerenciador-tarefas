@@ -1,11 +1,16 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Form, Modal, Jumbotron } from 'react-bootstrap';
 import { navigate, A } from 'hookrouter';
 
 function AtualizarTarefa(props) {
+  const [exibirModal, setExibirModal] = useState(true);
   function voltar(event) {
+    event.preventDefault();
+    navigate('/');
+  }
+  function handleFecharModal(event) {
     event.preventDefault();
     navigate('/');
   }
@@ -37,6 +42,19 @@ function AtualizarTarefa(props) {
             </A>
           </Form.Group>
         </Form>
+        <Modal show={exibirModal} onHide={handleFecharModal} data-testid='modal'>
+          <Modal.Header closeButton>
+            <Modal.Title>Sucesso</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            Tarefa atualizada com sucesso
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant='success' onClick={handleFecharModal}>
+              Continuar
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </Jumbotron>
     </div>
   )
