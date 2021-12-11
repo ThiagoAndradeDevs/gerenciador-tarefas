@@ -5,7 +5,7 @@ import { Button, Form, Modal, Jumbotron } from 'react-bootstrap';
 import { navigate, A } from 'hookrouter';
 
 function AtualizarTarefa(props) {
-  const [exibirModal, setExibirModal] = useState(true);
+  const [exibirModal, setExibirModal] = useState(false);
   function voltar(event) {
     event.preventDefault();
     navigate('/');
