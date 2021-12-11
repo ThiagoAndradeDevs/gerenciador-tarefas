@@ -10,8 +10,8 @@ function AtualizarTarefa(props) {
     event.preventDefault();
     navigate('/');
   }
-  function handleFecharModal(event) {
-    event.preventDefault();
+  function handleFecharModal() {
+
     navigate('/');
   }
   return (
