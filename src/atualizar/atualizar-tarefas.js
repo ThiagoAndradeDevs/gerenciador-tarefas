@@ -13,7 +13,7 @@ function AtualizarTarefa(props) {
     <div>
       <h3 className="text-center">Atualizar</h3>
       <Jumbotron>
-        <Form>
+        <Form noValidate>
           <Form.Group>
             <Form.Label>Tarefa</Form.Label>
             <Form.Control
