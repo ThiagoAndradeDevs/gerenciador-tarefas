@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import { A } from 'hookrouter';
 import React, { useState } from 'react';
-import { Button, Form, Modal, ToggleButtonGroup, Jumbotron } from 'react-bootstrap'
+import { Button, Form, Modal, Jumbotron } from 'react-bootstrap'
 import { navigate } from 'hookrouter';
 import Tarefa from '../models/tarefa.model';
 
@@ -36,7 +36,7 @@ function CadastrarTarefa() {
     <div>
 
       <h3 className='text-center'>Cadastar</h3>
-      <span>
+      <Jumbotron>
         <Form
           validated={formValidado}
           noValidate
@@ -79,7 +79,7 @@ function CadastrarTarefa() {
               onClick={handleFecharModal}>Continuar</Button>
           </Modal.Footer>
         </Modal>
-      </span>
+      </Jumbotron>
 
     </div>
   )
